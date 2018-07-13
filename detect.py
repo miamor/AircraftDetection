@@ -6,10 +6,6 @@ from scipy import ndimage
 from model import model
 
 def detector(model_fname, in_fname, out_fname=None):
-    """
-    Eg: python3 detector.py models/model.tfl images/scene_2.png
-    """
-
     # Load trained model
     model.load(model_fname)
 
@@ -69,8 +65,11 @@ def detector(model_fname, in_fname, out_fname=None):
     outIm.save(out_fname)
 
 
-# Main function
 if __name__ == "__main__":
+    """
+    Usage: 
+        python3 detect.py [model_path] [input_image]
+    """
     # Run detection function with command line inputs
     if len(sys.argv) == 3:
         detector(sys.argv[1], sys.argv[2])
